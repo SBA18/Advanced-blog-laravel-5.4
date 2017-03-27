@@ -26,6 +26,9 @@ Route::get('/posts/create', 'PostsController@create')->name('createPost');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 
+//Tags
+Route::get('/posts/tags/{tag}', 'TagsController@index');
+
 // Add new comment
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 // Reply comment

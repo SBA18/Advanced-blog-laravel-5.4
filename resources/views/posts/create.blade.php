@@ -20,6 +20,11 @@
         <textarea class="form-control" id="body" name='body' rows="10" required></textarea>
         <small id="bodyHelp" class="form-text text-muted">Please enter the post body here. Make sure to enter at lest 10 or more characters</small>
       </div>
+      <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="tags" name='tags' aria-describedby="tagHelp" required>
+        <small id="titleHelp" class="form-text text-muted">Here you can input ','(comma)separated tag names you want to associate with the post</small>
+      </div>
 
       <button type="submit" class="btn btn-primary">Publish</button>
     </form>

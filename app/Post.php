@@ -6,7 +6,7 @@ use App\Comment;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-
+use App\Tag;
 class Post extends Model
 {
     //protected fillable = ['title', 'body'];
@@ -43,5 +43,10 @@ class Post extends Model
             ->orderByRaw('min(created_at) desc')
             ->get()
             ->toArray();
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -8,6 +8,13 @@
   <div class="blog-post">
       <h2 class="blog-post-title">{{ $post->title }}</h2>
       <p class="blog-post-meta">{{ $post->created_at->diffForHumans() }} by <a href="#">{{ $post->user->name }}</a></p>
+      <p class="blog-post-meta">Tags :
+          @if(count($post->tags))
+            @foreach($post->tags as $tag)
+                <span> <a href="/posts/tags/{{ $tag->name }}">{{ $tag->name }}, </a> </span>
+            @endforeach
+          @endif
+      </p>
       <p>{{ $post->body }}</p>
   </div><!-- /.blog-post -->
 

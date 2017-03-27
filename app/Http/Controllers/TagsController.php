@@ -2,29 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Post;
 use App\Tag;
+use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class TagsController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show']);
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tag $tag)
     {
-        $posts = Post::latest()->filter(request(['month', 'year']))->paginate(5);
-
-
+        $posts = $tag->posts;
         return view('posts.index', compact('posts'));
     }
 
@@ -35,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -46,36 +36,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-          'title' => 'required|min:5|max:255',
-          'body' => 'required|min:10',
-        ]);
-
-        $post = new Post;
-        if ($post) {
-            $tagNames = explode(',', $request->get('tags'));
-            $tagIds = [];
-            foreach ($tagNames as $tagName) {
-
-                $post->title = $request->title;
-                $post->body = $request->body;
-                $post->user_id = Auth::user()->id;
-
-                $post->save();
-
-
-                $tag = Tag::firstOrCreate(['name'=>$tagName]);
-                if($tag)
-                {
-                  $tagIds[] = $tag->id;
-                }
-
-            }
-            $post->tags()->sync($tagIds);
-        }
-       
-
-        return redirect('/');
+        //
     }
 
     /**
@@ -84,9 +45,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        return view('posts.show', compact('post'));
+        //
     }
 
     /**
