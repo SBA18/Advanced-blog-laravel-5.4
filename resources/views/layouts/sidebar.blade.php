@@ -3,6 +3,15 @@
         <h4><a href="{{ route('aboutMe') }}">About</a></h4>
         <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
     </div>
+     <div class="sidebar-module">
+        <h4>Categories</h4>
+        <ol class="list-unstyled">
+            @foreach($categories as $category)
+                <li><a href="/posts/categories/{{ $category }}">{{ $category }}</a></li>
+            @endforeach
+        </ol>
+    </div>
+
     <div class="sidebar-module">
         <h4>Archives</h4>
         <ol class="list-unstyled">

@@ -15,6 +15,15 @@
             @endforeach
           @endif
       </p>
+
+      <p class="blog-post-meta">Categories :
+          @if(count($post->categories))
+            @foreach($post->categories as $category)
+                <span> <a href="/posts/categories/{{ $category->id }}">{{ $category->title }}, </a> </span>
+            @endforeach
+          @endif
+      </p>
+
       <p>{{ $post->body }}</p>
   </div><!-- /.blog-post -->
 

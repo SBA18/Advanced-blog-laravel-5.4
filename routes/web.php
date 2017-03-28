@@ -26,12 +26,27 @@ Route::get('/posts/create', 'PostsController@create')->name('createPost');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 
+//user posts
+Route::get('posts/user/{user}', 'PostsController@userPosts');
+
+//Categories
+Route::get('/categories/list', 'CategoriesController@categoriesList');
+Route::get('/categories/create', 'CategoriesController@create');
+
+
+// Route::get('/categories/{category}', 'CategoriesController@show');
+Route::post('/categories', 'CategoriesController@store');
+Route::get('/posts/categories/{category}', 'CategoriesController@index');
+
 //Tags
 Route::get('/posts/tags/{tag}', 'TagsController@index');
 
+
 // Add new comment
 Route::post('/posts/{post}/comments', 'CommentsController@store');
+
 // Reply comment
+
 
 // Manage Static Pages
 Route::get('/contact-us', 'PagesController@contactUs')->name('contactUs');

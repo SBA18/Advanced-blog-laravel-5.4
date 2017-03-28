@@ -16,7 +16,7 @@
     @endforeach
 
     <nav class="blog-pagination text-center">
-      {{-- {!! $posts->links() !!} --}}
+      {!! $posts->links() !!}
     </nav>
 
   </div><!-- /.blog-main -->

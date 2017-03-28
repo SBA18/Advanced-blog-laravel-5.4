@@ -20,9 +20,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ route('createPost')}}">New post</a>
-                        </li>
-                        <li>
                             <a href="{{ route('aboutMe') }}">About Me</a>
                         </li>
                         <li>
@@ -43,6 +40,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/home">My account</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

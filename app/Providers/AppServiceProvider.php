@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Post;
 use App\Tag;
+use App\Category;
 use Illuminate\Support\ServiceProvider;
 use Schema;
 
@@ -21,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.sidebar', function($view){
             $view->with('archives', Post::archives());
             $view->with('tags', Tag::has('posts')->pluck('name'));
+            $view->with('categories', Category::has('posts')->pluck('title'));
         });
     }
 
